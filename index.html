@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>视频播放器</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        video {
-            width: 80%; /* 设置视频宽度 */
-            max-width: 800px; /* 设置视频最大宽度 */
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <title>欢迎来到越南语中心</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        window.onload = function () {
+            var text = "欢迎来到越南语中心";
+            var i = 0;
+            var element = document.getElementById("welcome-text");
+
+            function typeWriter() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 100);
+                }
+            }
+            typeWriter();
+        };
+    </script>
 </head>
 <body>
-    <h1>我的视频播放器</h1>
-    <video controls>
-        <source src="your-video.mp4" type="video/mp4">
-        您的浏览器不支持 HTML5 视频标签。
-    </video>
+    <div class="welcome-container">
+        <h1 id="welcome-text"></h1>
+        <button onclick="window.location.href='cards.html'" class="btn">继续</button>
+    </div>
 </body>
 </html>
