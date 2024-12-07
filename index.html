@@ -3,29 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎来到越南语中心</title>
+    <title>学习平台</title>
     <link rel="stylesheet" href="style.css">
-    <script>
-        window.onload = function () {
-            var text = "欢迎来到越南语中心\n我是你们的Rainie Laoshi";
-            var i = 0;
-            var element = document.getElementById("welcome-text");
-
-            function typeWriter() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(typeWriter, 100);
-                }
-            }
-            typeWriter();
-        };
-    </script>
 </head>
 <body>
-    <div class="welcome-container">
-        <h1 id="welcome-text"></h1>
-        <button onclick="window.location.href='cards.html'" class="btn">继续</button>
+    <div class="hero-section">
+        <div class="content">
+            <h1>欢迎来到越南语学习平台</h1>
+            <p>我们提供各种越南语学习课程，帮助你快速掌握越南语。</p>
+        </div>
+    </div>
+
+    <div class="introduction">
+        <h2>关于我们</h2>
+        <p>我们的平台致力于提供高质量的越南语学习资源。通过一对一课程、在线学习资料和实用的课程，帮助你轻松提高语言能力。</p>
+    </div>
+
+    <div class="image-gallery">
+        <img src="images/welcome.jpg" alt="欢迎图" class="hero-image">
+    </div>
+
+    <div class="cta">
+        <button onclick="window.location.href='courses.html'" class="btn">查看课程</button>
     </div>
 </body>
 </html>
