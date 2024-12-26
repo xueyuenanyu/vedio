@@ -210,111 +210,43 @@
             <h2>老师简介</h2>
             <div class="image-placeholder">上传您的照片</div>
             <p>Rainie Laoshi | YouTube 越南语老师</p>
-            <p>Rainie老师是一位资深的越南语教师，拥有多年教授越南语的经验。通过YouTube频道，Rainie老师已经帮助成千上万的学生掌握了越南语基础和进阶知识。她的教学风格生动活泼，深受学生们喜爱。</p>
-        </div>
-        
-        <div class="section">
-            <h2>课程概述</h2>
-            <p>课程一：零基础入门越南语</p>
-            <p>课程二：越南语语法与发音</p>
-            <p>课程三：实用口语提升</p>
-            <p>课程四：越南文化与习俗</p>
         </div>
 
-        <div class="section">
-            <h2>课程介绍</h2>
-            <table border="1" width="100%" cellpadding="10">
-                <thead>
-                    <tr>
-                        <th>课程类型</th>
-                        <th>课程内容</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>一对一线上教学</td>
-                        <td>根据学员的水平，提供个性化的在线一对一教学服务，帮助您更快掌握越南语。</td>
-                    </tr>
-                    <tr>
-                        <td>一千句越南语资料</td>
-                        <td>提供一千句常用越南语句子，帮助您提升日常交流能力，快速掌握实用的越南语表达。</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="section">
-            <h2>衣服</h2>
-            <div class="image-placeholder">上传衣服照片</div>
-            <p>这款衣服非常适合越南语学习者穿着，舒适的面料和设计让您在学习时既能感到放松又能保持活力，最主要的是要可以跟当地的人互动</p>
-        </div>
-
-        <div class="section">
-            <h2>适用人群</h2>
-            <div class="grid">
-                <p>无论您是零基础的新手，还是希望提高越南语水平的学习者，本课程都能为您提供有效的学习方法。</p>
-                <p>如果您希望用越南语进行基本交流，或是对越南文化感兴趣，加入我们的课程将帮助您在短时间内获得显著进步。</p>
-                <p>适合所有想要学习越南语的朋友，特别适合想要去越南旅游、工作或学习的人群。</p>
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>联系我</h2>
-            <p><a href="weixin://dl/officialaccounts?scene=104&need_open_webview=1" target="_blank">微信：oanh18992</a></p>
-            <p><a href="mailto:kimnguyen18992@gmail.com">Gmail：kimnguyen18992@gmail.com</a></p>
-        </div>
-
-        <div class="footer">
-            <p>© 2024 全能越南语课程</p>
-        </div>
+        <!-- 反馈按钮 -->
+        <div class="feedback-button" onclick="openFeedbackForm()">💬</div>
     </div>
-
-    <!-- 反馈按钮 -->
-    <div class="feedback-button" onclick="openFeedbackForm()">💬</div>
 
     <!-- 反馈弹窗 -->
     <div class="feedback-modal" id="feedbackModal">
         <div class="feedback-modal-content">
             <h2>反馈您的意见</h2>
             <textarea id="feedbackText" placeholder="请输入您的反馈..."></textarea>
-            <div>
-                <label for="feedbackPhoto">上传照片：</label>
-                <input type="file" id="feedbackPhoto" accept="image/*">
-            </div>
-            <div>
-                <label for="feedbackVideo">上传视频：</label>
-                <input type="file" id="feedbackVideo" accept="video/*">
-            </div>
-            <div>
-                <button onclick="submitFeedback()">提交反馈</button>
-                <button onclick="closeFeedbackForm()">取消</button>
-            </div>
+            <button onclick="submitFeedback()">提交反馈</button>
+            <button onclick="closeFeedbackForm()">取消</button>
         </div>
     </div>
 
     <script>
-        // 打开反馈表单
         function openFeedbackForm() {
             document.getElementById('feedbackModal').style.display = 'flex';
         }
 
-        // 关闭反馈表单
         function closeFeedbackForm() {
             document.getElementById('feedbackModal').style.display = 'none';
         }
 
-        // 提交反馈
-        function submitFeedback() {
+        async function submitFeedback() {
             const feedbackText = document.getElementById('feedbackText').value;
-            const feedbackPhoto = document.getElementById('feedbackPhoto').files[0];
-            const feedbackVideo = document.getElementById('feedbackVideo').files[0];
 
-            // 在这里处理反馈数据，例如上传到服务器
-            console.log('反馈内容:', feedbackText);
-            console.log('反馈图片:', feedbackPhoto);
-            console.log('反馈视频:', feedbackVideo);
-
-            // 关闭弹窗
+            // Send data to backend
+            fetch('http://localhost:3000/send-feedback', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ feedbackText }),
+            })
+            .then(response => response.json())
+            .then(data => alert('反馈已发送！'))
+            .catch(err => console.error(err));
             closeFeedbackForm();
         }
     </script>
