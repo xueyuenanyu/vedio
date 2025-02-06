@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越南语学习 | 越语学堂</title>
+    <style>
+        /* 新增图片样式部分 */
+        .logo-img {
+            height: 50px; /* 适合导航栏的高度 */
+            width: auto;
+        }
+
+        .teacher-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin: 1rem auto;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .cultural-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .culture-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .culture-card img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 修改原有hero部分 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('images/hero-vietnam.jpg') center/cover;
+            /* 建议图片尺寸：1920x1080 像素 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏添加logo图片 -->
+    <nav class="navbar">
+        <img src="images/logo.png" alt="越语学堂logo" class="logo-img">
+        <div class="nav-links">
+            <a href="#courses">课程体系</a>
+            <a href="#teachers">教师团队</a>
+            <a href="#culture">越南文化</a>
+        </div>
+    </nav>
+
+    <!-- 新增教师介绍模块 -->
+    <section class="teachers" id="teachers">
+        <h2>专业教师团队</h2>
+        <div class="teacher-card">
+            <img src="images/teacher-mai.jpg" alt="越南语教师阿梅" class="teacher-photo">
+            <h3>阮氏梅老师</h3>
+            <p>河内大学语言学硕士 | 5年中文教学经验</p>
+        </div>
+    </section>
+
+    <!-- 改进后的课程卡片 -->
+    <section class="courses" id="courses">
+        <div class="course-card">
+            <img src="images/course-basic.jpg" alt="初级越南语课程" class="course-image">
+            <div class="course-content">
+                <h3>越南语初级课程</h3>
+                <p>从字母发音到日常对话</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新增文化体验专区 -->
+    <section class="cultural-section" id="culture">
+        <div class="culture-card">
+            <img src="images/vietnam-food.jpg" alt="越南美食文化">
+            <h4>饮食文化解析</h4>
+            <p>从pho到春卷的饮食语言</p>
+        </div>
+        <div class="culture-card">
+            <img src="images/vietnam-market.jpg" alt="越南市集文化">
+            <h4>市集砍价实战</h4>
+            <p>掌握市场常用越南语</p>
+        </div>
+    </section>
+
+    <!-- 教材展示区 -->
+    <section class="materials">
+        <h2>原创教材实物展示</h2>
+        <div class="book-gallery">
+            <img src="images/book1.jpg" alt="《越语发音突破》教材封面">
+            <img src="images/book2.jpg" alt="《商务越南语实战》教材封面">
+        </div>
+    </section>
+
+    <!-- 移动端优化 -->
+    <script>
+        // 图片懒加载实现
+        document.addEventListener("DOMContentLoaded", function() {
+            const lazyImages = [].slice.call(document.querySelectorAll("img.lazy-load"));
+            
+            if ("IntersectionObserver" in window) {
+                let lazyImageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            let lazyImage = entry.target;
+                            lazyImage.src = lazyImage.dataset.src;
+                            lazyImage.classList.remove("lazy-load");
+                            lazyImageObserver.unobserve(lazyImage);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(lazyImage) {
+                    lazyImageObserver.observe(lazyImage);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
