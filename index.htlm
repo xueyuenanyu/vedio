@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainie越南语教室 - 跟YouTube明星学越南语</title>
+    <style>
+        /* 柔和配色方案 */
+        :root {
+            --cream: #F5F3E7;
+            --sage: #B5C2B7;
+            --clay: #D4A373;
+            --text: #4A4A48;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* 动态导航栏 */
+        .navbar {
+            background: rgba(245, 243, 231, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        /* 动态按钮特效 */
+        .cta-btn {
+            background: var(--clay);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            left: -100%;
+            top: 0;
+            transition: 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(212,163,115,0.3);
+        }
+
+        .cta-btn:hover::after {
+            left: 100%;
+        }
+
+        /* 自我介绍模块 */
+        .bio-section {
+            padding: 6rem 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .bio-photo {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* 电子书宣传 */
+        .ebook-banner {
+            background: var(--sage);
+            padding: 4rem 5%;
+            text-align: center;
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+            margin: 5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">Rainie越南语</div>
+        <div class="nav-links">
+            <a href="#bio">教师简介</a>
+            <a href="#courses">课程体系</a>
+            <a href="#ebook">教材订购</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- 自我介绍 -->
+    <section class="bio-section" id="bio">
+        <img src="rainie-profile.jpg" alt="Rainie老师专业形象照" class="bio-photo">
+        <div>
+            <h1>你好，我是Rainie老师！</h1>
+            <p>✦ 越南河内大学语言学硕士 | 中文双语教学专家 ✦</p>
+            <p>拥有8年跨境语言教学经验，YouTube频道累计观看超2000万次。我的教学方法融合现代语言习得理论与越南传统文化，独创"情景式母语浸入法"，帮助3000+中文母语者实现：</p>
+            <ul>
+                <li>3个月掌握日常会话核心框架</li>
+                <li>6个月达到商务沟通水平</li>
+                <li>1年突破C1高级越南语认证</li>
+            </ul>
+            <p>教学特色：<br>
+            通过影视剧台词解析+真实场景模拟，破解中文母语者特有的发音难点。独创"越南语声调记忆图谱"，帮助学员精准掌握6大声调系统。</p>
+        </div>
+    </section>
+
+    <!-- 电子书宣传 -->
+    <section class="ebook-banner" id="ebook">
+        <h2>《越南语核心1000句》电子版</h2>
+        <p>精选20个生活场景 × 50个商务情境 × 30个文化专题<br>
+        包含：<br>
+        ✅ 逐句拼音标注 & 声调示意图<br>
+        ✅ 情境对话MP3下载（含慢速/常速双版本）<br>
+        ✅ 独家"易错点对照表"</p>
+        <a href="#" class="cta-btn">立即订购电子书</a>
+        <p style="margin-top:1rem;"><small>※ 订购后请联系YouTube频道客服获取下载链接</small></p>
+    </section>
+
+    <!-- 最新视频 -->
+    <section style="padding:6rem 5%">
+        <h2>最新教学视频</h2>
+        <div style="max-width:800px; margin:2rem auto;">
+            <div style="position:relative; padding-bottom:56.25%; height:0;">
+                <iframe 
+                    src="https://www.youtube.com/embed/0KC0yjZofEU" 
+                    style="position:absolute; top:0; left:0; width:100%; height:100%;"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <footer style="background:var(--text); color:white; padding:4rem 5%; text-align:center;" id="contact">
+        <h3>获取专属学习方案</h3>
+        <p>通过以下方式联系我们：</p>
+        <div style="margin:2rem 0;">
+            <a href="https://youtube.com/你的频道链接" 
+               style="color:var(--clay); text-decoration:none;"
+               target="_blank">
+               YouTube频道私信咨询
+            </a>
+        </div>
+        <p>服务时间：周一至周五 09:00-18:00 (GMT+8)</p>
+    </footer>
+
+    <script>
+        // 导航栏滚动特效
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if(window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 动态加载特效
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.bio-section, .ebook-banner');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if(entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            entry.target.style.transition = 'all 0.6s ease-out';
+                        }
+                    });
+                });
+                
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
