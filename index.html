@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越语学堂 - 一站式越南语学习平台</title>
+    <style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        /* 配色方案 */
+        :root {
+            --primary: #2E7D32; /* 主绿色 */
+            --accent: #FF8F00;  /* 强调橙色 */
+        }
+
+        /* 导航栏 */
+        .navbar {
+            padding: 1rem;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        /* 首页横幅 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://via.placeholder.com/1920x1080');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 8rem 1rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        /* 课程卡片 */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 5%;
+        }
+
+        .course-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            opacity: 0;
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .course-card:nth-child(1) { animation-delay: 0.2s; }
+        .course-card:nth-child(2) { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 其他样式保持不变... */
+
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">越语学堂</div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        <div class="nav-links">
+            <a href="#courses">课程体系</a>
+            <a href="#resources">学习资源</a>
+            <a href="#teachers">教师团队</a>
+            <a href="#contact">联系我们</a>
+        </div>
+    </nav>
+
+    <!-- 其他内容保持不变... -->
+
+    <!-- YouTube视频模块 -->
+    <section style="padding: 4rem 5%; text-align: center;">
+        <h2>最新教学视频</h2>
+        <div style="margin: 2rem auto; max-width: 800px;">
+            <iframe 
+                width="100%" 
+                height="450" 
+                src="https://www.youtube.com/embed/0KC0yjZofEU" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <script>
+        // 扩展功能：页面加载动画
+        window.addEventListener('load', () => {
+            document.body.style.opacity = 1;
+            document.body.style.transition = 'opacity 0.5s';
+            
+            // 课程卡片动画
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.2}s`;
+            });
+        });
+        document.body.style.opacity = 0;
+
+        // 扩展功能：增强版移动端菜单
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-links');
+            const btn = document.querySelector('.mobile-menu-btn');
+            
+            if (nav.style.display === 'flex') {
+                nav.style.animation = 'slideUp 0.3s reverse';
+                setTimeout(() => {
+                    nav.style.display = 'none';
+                }, 250);
+                btn.innerHTML = '☰';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.animation = 'slideDown 0.3s';
+                btn.innerHTML = '✕';
+            }
+        }
+
+        // 窗口调整监听
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                document.querySelector('.nav-links').style.display = 'flex';
+            } else {
+                document.querySelector('.nav-links').style.display = 'none';
+                document.querySelector('.mobile-menu-btn').innerHTML = '☰';
+            }
+        });
+
+        // 扩展功能：平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
