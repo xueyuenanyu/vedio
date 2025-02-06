@@ -24,27 +24,46 @@
             padding: 20px;
             background: white;
             border-radius: 8px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
             text-align: left;
         }
-        img {
+        h2 {
+            position: relative;
+            display: inline-block;
+            padding: 5px 10px;
+            font-size: 24px;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 2px;
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            margin: 10px 0;
+            height: 10px;
+            background: yellow; /* 彩色笔涂抹效果 */
+            opacity: 0.5;
+            z-index: -1;
+        }
+        p {
+            line-height: 1.8;
         }
         .contact-icons {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             margin-top: 20px;
         }
         .contact-icons a {
-            display: inline-block;
+            text-decoration: none;
         }
         .contact-icons img {
             width: 40px;
             height: 40px;
+            transition: transform 0.3s ease;
+        }
+        .contact-icons img:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
@@ -54,31 +73,35 @@
 
 <section>
     <h2>关于我</h2>
-    <img src="https://via.placeholder.com/800x400" alt="Rainie 老师">
-    <p>大家好，我是 Rainie 老师，一名专注于教授中国人学习越南语的 YouTuber。我热爱语言和文化，致力于帮助大家轻松掌握越南语。我的教学方式生动有趣，适合零基础和进阶学习者。如果你对越南语感兴趣，欢迎关注我的频道，一起学习！</p>
+    <p>大家好，我是 Rainie 老师，一名专注于教授越南语的 YouTuber。我热爱语言学习，并希望通过轻松有趣的方式，帮助大家掌握地道的越南语。我在 YouTube 上制作了丰富的教学视频，涵盖基础发音、日常对话、商务越南语等内容。如果你想高效学习越南语，欢迎关注我的频道！</p>
 </section>
 
 <section>
-    <h2>《一千句越南语》电子书</h2>
-    <img src="https://via.placeholder.com/800x400" alt="电子书封面">
-    <p>学习越南语最有效的方法之一就是掌握高频使用的句子。《一千句越南语》电子书精心整理了最常用的句子，包括日常交流、商务、旅游等多个场景，让你快速提高听说能力。这本书适合初学者，也适合希望进一步提升越南语水平的朋友。</p>
-    <p>现在购买电子书，还赠送语音朗读文件，让你随时随地练习！</p>
+    <h2>一千句越南语电子书</h2>
+    <p>📘 你是否希望快速掌握越南语？《一千句越南语》是你最佳的选择！这本电子书包含最常用的 1000 句越南语句子，从日常交流到商务场景，助你快速提升越南语能力。</p>
+    <p>✅ 适合初学者到进阶学习者</p>
+    <p>✅ 每个句子都配有标准发音与中文翻译</p>
+    <p>✅ 轻松提高听说能力，快速融入越南环境</p>
+    <p>💡 立即下载，开启你的越南语学习之旅！</p>
 </section>
 
 <section>
-    <h2>YouTube 频道</h2>
-    <img src="https://via.placeholder.com/800x400" alt="YouTube 频道">
-    <p>我在 YouTube 上定期更新越南语学习视频，内容涵盖语法、口语、文化等多个方面。通过轻松有趣的教学方式，让你在短时间内掌握地道的越南语表达。</p>
-</section>
-
-<section>
-    <h2>联系我</h2>
+    <h2>联系我们</h2>
     <div class="contact-icons">
-        <a href="https://www.youtube.com/@RainieLaoshi" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube">
+        <a href="https://youtube.com/@rainielaoshivietnamese?si=Gacxvhh7CKWLc3Ll" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt="YouTube">
         </a>
-        <a href="mailto:example@gmail.com">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/New_Logo_Gmail.svg" alt="Gmail">
+        <a href="mailto:kimnguyen18992@gmail.com">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png" alt="Email">
+        </a>
+        <a href="https://www.instagram.com/rainielaoshi" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="weixin://contacts/profile/oanh18992">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/WeChat_Logo.svg" alt="WeChat">
+        </a>
+        <a href="https://line.me/ti/p/~0372040129" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/LINE_logo.svg" alt="Line">
         </a>
     </div>
 </section>
