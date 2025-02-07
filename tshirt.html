@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background: #F5F3E7;
+            background: #E6F4EA; /* 奶油绿色 */
             color: #4A4A48;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -32,6 +32,28 @@
             max-width: 400px;
             scroll-snap-align: center;
             border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .carousel img:hover {
+            transform: scale(1.05);
+        }
+        /* 放大图片的样式 */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
         }
         .buy-btn {
             background: #A63D40;
@@ -49,12 +71,13 @@
     <div class="container">
         <h1>🔥 越南语T恤，轻松开启对话！🔥</h1>
 
+        <!-- 图片滑动区域 -->
         <div class="carousel">
-            <img src="images/tshirt_front.jpg" alt="T恤正面">
-            <img src="images/tshirt_back.jpg" alt="T恤背面">
-            <img src="images/tshirt_detail.jpg" alt="T恤细节">
-            <img src="images/student_1.jpg" alt="学生试穿">
-            <img src="images/student_2.jpg" alt="学生试穿">
+            <img src="images/tshirt_front.jpg" alt="T恤正面" onclick="showImage(this)">
+            <img src="images/tshirt_back.jpg" alt="T恤背面" onclick="showImage(this)">
+            <img src="images/tshirt_detail.jpg" alt="T恤细节" onclick="showImage(this)">
+            <img src="images/student_1.jpg" alt="学生试穿1" onclick="showImage(this)">
+            <img src="images/student_2.jpg" alt="学生试穿2" onclick="showImage(this)">
         </div>
 
         <p>💡 **你学越南语的最佳象征！**</p>
@@ -72,12 +95,25 @@
         <p>🎉 购买即送 **越南语日常口语资料**！</p>
 
         <h3>📌 **如何购买？**</h3>
-        <p>**👉 扫描下方二维码**，或点击按钮直接购买！</p>
-
-        <img src="images/qrcode.png" alt="购买二维码" class="tshirt-image">
+        <p>**👉 点击下方按钮直接购买！**</p>
 
         <a href="https://你的购买链接" class="buy-btn">立即购买</a>
     </div>
+
+    <!-- 放大图片的遮罩层 -->
+    <div class="overlay" id="imageOverlay" onclick="hideImage()">
+        <img id="largeImage">
+    </div>
+
+    <script>
+        function showImage(img) {
+            document.getElementById("largeImage").src = img.src;
+            document.getElementById("imageOverlay").style.display = "flex";
+        }
+        function hideImage() {
+            document.getElementById("imageOverlay").style.display = "none";
+        }
+    </script>
 
 </body>
 </html>
