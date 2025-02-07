@@ -20,6 +20,7 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin: 0;
+            overflow-x: hidden; /* 禁止左右滑动 */
         }
 
         /* 菜单栏 */
@@ -40,15 +41,16 @@
             cursor: pointer;
         }
 
+        /* 修改菜单显示在左侧 */
         .nav-links {
             display: none;
             flex-direction: column;
             background: var(--cream);
             position: absolute;
             top: 60px;
-            right: 5%;
+            left: 0; /* 改为左侧展开 */
             width: 200px;
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.1);
         }
 
         .nav-links a {
@@ -88,7 +90,7 @@
         }
 
         .course-btn {
-            background: var(--clay);
+            background: var(--sage); /* 颜色改成和课程体系的格子一样 */
             color: white;
             padding: 10px 20px;
             border-radius: 5px;
@@ -101,6 +103,7 @@
             width: 90%;
             max-width: 600px;
             margin: auto;
+            text-align: left; /* 让视频靠左 */
         }
 
         .video-container {
@@ -137,11 +140,11 @@
 
     </style>
 </head>
-<body>
+<body onclick="closeMenu(event)">
 
     <!-- 菜单栏 -->
     <nav class="navbar">
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu-icon" onclick="toggleMenu(event)">☰</div>
         <div class="nav-links" id="menu">
             <a href="#bio">教师简介</a>
             <a href="#courses">课程体系</a>
@@ -195,8 +198,15 @@
     </section>
 
     <script>
-        function toggleMenu() {
+        function toggleMenu(event) {
+            event.stopPropagation(); // 防止点击菜单图标时触发关闭
             document.getElementById('menu').classList.toggle('show-menu');
+        }
+
+        function closeMenu(event) {
+            if (!event.target.closest('.navbar')) {
+                document.getElementById('menu').classList.remove('show-menu');
+            }
         }
 
         function copyToClipboard(text) {
