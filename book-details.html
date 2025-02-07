@@ -1,140 +1,81 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>书籍购买详情</title>
-    <link rel="stylesheet" href="style.css">
+    <title>文法书详情</title>
     <style>
         body {
-            background: #E8F5E9; /* 浅绿色背景 */
-            color: #4A4A48;
             font-family: Arial, sans-serif;
-            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
-
-        .book-details {
-            background: #FFFFFF;
-            padding: 40px;
-            margin: auto;
+        .container {
             max-width: 800px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            font-size: 28px;
-            color: #388E3C;
-        }
-
-        p {
-            font-size: 16px;
-            color: #4A4A48;
-            line-height: 1.6;
-        }
-
-        /* 图片展示区域 */
-        .image-gallery {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .image-gallery img {
-            width: 100%;
-            max-width: 200px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .image-gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        /* 图片放大区域 */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .overlay img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        /* 购买链接 */
-        .purchase-links {
-            margin-top: 20px;
-            text-align: left;
+            margin: 50px auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-
+        h1 {
+            text-align: center;
+            color: #555;
+        }
+        .book-images {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .book-images img {
+            max-width: 30%;
+            border-radius: 10px;
+        }
+        .purchase-links {
+            margin-top: 30px;
+        }
         .purchase-links a {
             display: block;
-            color: #2E7D32;
-            font-size: 16px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e0e0e0;
+            color: #333;
             text-decoration: none;
-            margin: 8px 0;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease;
         }
-
         .purchase-links a:hover {
-            text-decoration: underline;
+            background-color: #d0d0d0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #777;
         }
     </style>
 </head>
 <body>
-
-    <div class="book-details">
-        <h2>📖 文法书购买</h2>
-        <p>以下平台均可购买，方便快捷！</p>
-
-        <div class="image-gallery">
-            <img src="images/ebook1.jpg" alt="书籍1" onclick="openImage(this)">
-            <img src="images/ebook2.jpg" alt="书籍2" onclick="openImage(this)">
-            <img src="images/ebook3.jpg" alt="书籍3" onclick="openImage(this)">
+    <div class="container">
+        <h1>文法书详情</h1>
+        <div class="book-images">
+            <img src="image1.jpg" alt="文法书封面1">
+            <img src="image2.jpg" alt="文法书封面2">
+            <img src="image3.jpg" alt="文法书封面3">
         </div>
-
         <div class="purchase-links">
-            <h3>📍 购买链接：</h3>
-            <a href="https://www.books.com.tw">📌 博客來</a>
-            <a href="https://reurl.cc/lQEQKj">📌 MOMO购物网</a>
-            <a href="https://24h.pchome.com">📌 PCHOME 24H购物</a>
-            <a href="https://reurl.cc/QR1Ry0">📌 金石堂</a>
-            <a href="https://www.iread.com.tw">📌 灰熊iREAD</a>
-            <a href="https://www.taaze.tw">📌 读册TAAZE生活</a>
-            <p>📚 **台湾、香港、澳门各大实体书店均有销售！**</p>
+            <a href="https://www.books.com...." target="_blank">博客來</a>
+            <a href="https://reurl.cc/lQEQKj" target="_blank">MOMO購物網</a>
+            <a href="https://24h.pchome.com..." target="_blank">PCHOME 24H購物</a>
+            <a href="https://reurl.cc/QR1Ry0" target="_blank">金石堂</a>
+            <a href="https://www.iread.com...." target="_blank">灰熊iREAD</a>
+            <a href="https://www.taaze.tw/p..." target="_blank">讀冊TAAZE生活</a>
+        </div>
+        <div class="footer">
+            <p>台灣、香港、澳門各大實體書店皆有販售</p>
         </div>
     </div>
-
-    <!-- 图片放大展示区域 -->
-    <div class="overlay" onclick="closeImage()">
-        <img src="" id="overlay-image" alt="放大图片">
-    </div>
-
-    <script>
-        function openImage(imgElement) {
-            var overlay = document.querySelector('.overlay');
-            var overlayImage = document.getElementById('overlay-image');
-            overlayImage.src = imgElement.src;
-            overlay.style.display = 'flex';
-        }
-
-        function closeImage() {
-            var overlay = document.querySelector('.overlay');
-            overlay.style.display = 'none';
-        }
-    </script>
-
 </body>
 </html>
