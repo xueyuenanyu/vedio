@@ -168,7 +168,27 @@
 .book-btn:hover {
     background: #81C784; /* 按钮悬停颜色 */
 }
+        /* bilibili */
+        .video-section {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            text-align: left; /* 让视频靠左 */
+            margin-bottom: 50px; /* 增加视频和联系方式的间距 */
+        }
 
+        .video-container {
+            width: 100%;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
         /* 最新视频 */
         .video-section {
             width: 90%;
@@ -270,6 +290,14 @@
     <p>书籍内容丰富，知识最新，值得拥有。</p>
 <a href="details/book-details.html" class="book-btn">📚 文法书购买链接</a>
 </section>
+
+    <!-- bilibili -->
+    <section class="video-section" id="video">
+        <h2>最新教学视频</h2>
+        <div class="video-container">
+            <iframe src="【【Rainie越南语】生活化语法 轻松学会用！疑问词 NHƯ THẾ NÀO-哔哩哔哩】 https://b23.tv/dhX6JF0" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
 
     <!-- 最新教学视频 -->
     <section class="video-section" id="video">
