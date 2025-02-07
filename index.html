@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainie越南语教室</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* 颜色定义 */
+        :root {
+            --cream: #F5F3E7;
+            --sage: #B5C2B7;
+            --clay: #D4A373;
+            --text: #4A4A48;
+        }
+
+        body {
+            background: var(--cream);
+            color: var(--text);
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        /* 菜单栏 */
+        .navbar {
+            background: rgba(245, 243, 231, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            background: var(--cream);
+            position: absolute;
+            top: 60px;
+            right: 5%;
+            width: 200px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-links a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            color: var(--text);
+            border-bottom: 1px solid #ddd;
+        }
+
+        .show-menu {
+            display: flex;
+        }
+
+        /* 个人简介 */
+        .bio-section {
+            margin-top: 80px;
+            padding: 20px;
+        }
+
+        .bio-photo {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        /* 课程体系 */
+        .course-section, .ebook-section {
+            background: var(--sage);
+            padding: 40px;
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .ebook-section {
+            background: var(--clay);
+            color: white;
+        }
+
+        .course-btn {
+            background: var(--clay);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* 最新视频 */
+        .video-container {
+            width: 90%;
+            max-width: 600px;
+            margin: auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 联系方式 */
+        .contact-section {
+            background: var(--text);
+            color: white;
+            padding: 40px;
+        }
+
+        .contact-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-icons a {
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- 菜单栏 -->
+    <nav class="navbar">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="menu">
+            <a href="#bio">教师简介</a>
+            <a href="#courses">课程体系</a>
+            <a href="#ebook">教材订购</a>
+            <a href="#video">教学视频</a>
+            <a href="#contact">联系方式</a>
+        </div>
+    </nav>
+
+    <!-- 个人简介 -->
+    <section class="bio-section" id="bio">
+        <img src="rainie-profile.jpg" alt="Rainie老师" class="bio-photo">
+        <h1>RAINIE LAOSHI</h1>
+        <p>✦ 越南语教学专家 | YouTube百万观看量 ✦</p>
+        <p>8年语言教学经验，帮助3000+中文母语者掌握越南语。</p>
+    </section>
+
+    <!-- 课程体系 -->
+    <section class="course-section" id="courses">
+        <h2>课程体系</h2>
+        <p>完整的越南语学习路径，从零基础到高级流利表达。</p>
+        <a href="course.html" class="course-btn">查看课程详情</a>
+    </section>
+
+    <!-- 教材订购 -->
+    <section class="ebook-section" id="ebook">
+        <h2>越南语核心1000句</h2>
+        <p>适用于初学者，包含完整发音、语法解析和实用场景对话。</p>
+        <a href="mailto:kimnguyen18992@gmail.com" class="course-btn">立即订购电子书</a>
+    </section>
+
+    <!-- 最新教学视频 -->
+    <section class="video-section" id="video">
+        <h2>最新教学视频</h2>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/0KC0yjZofEU" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section class="contact-section" id="contact">
+        <h3>联系方式</h3>
+        <div class="contact-icons">
+            <a href="https://youtube.com/@rainielaoshivietnamese"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/share/1BJxxzAxQ4/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/rainie_laoshi"><i class="fab fa-instagram"></i></a>
+            <a href="#" onclick="copyToClipboard('0372040129')"><i class="fab fa-line"></i></a>
+            <a href="#" onclick="copyToClipboard('oanh18992')"><i class="fab fa-weixin"></i></a>
+            <a href="mailto:kimnguyen18992@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('show-menu');
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert("已复制：" + text);
+        }
+    </script>
+
+</body>
+</html>
