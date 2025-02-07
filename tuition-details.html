@@ -91,6 +91,38 @@
             var overlay = document.querySelector('.overlay');
             overlay.style.display = 'none';
         }
+        
+        <!-- 联系方式 -->
+    <section class="contact-section" id="contact">
+        <h3>联系方式</h3>
+        <div class="contact-icons">
+            <a href="https://youtube.com/@rainielaoshivietnamese"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://www.facebook.com/share/1BJxxzAxQ4/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/rainie_laoshi"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" onclick="copyToClipboard('0372040129')"><i class="fa-brands fa-line"></i></a>
+            <a href="#" onclick="copyToClipboard('oanh18992')"><i class="fa-brands fa-weixin"></i></a>
+            <a href="mailto:kimnguyen18992@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </section>
+
+    <script>
+        function toggleMenu(event) {
+            event.stopPropagation(); // 防止点击菜单图标时触发关闭
+            document.getElementById('menu').classList.toggle('show-menu');
+        }
+
+        function closeMenu(event) {
+            if (!event.target.closest('.navbar')) {
+                document.getElementById('menu').classList.remove('show-menu');
+            }
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            alert("已复制：" + text);
+        }
+    </script>
+        
     </script>
 
 </body>
