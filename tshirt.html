@@ -18,10 +18,20 @@
             max-width: 600px;
             margin: auto;
         }
-        .tshirt-image {
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding: 10px;
+            max-width: 600px;
+            margin: auto;
+        }
+        .carousel img {
             width: 100%;
             max-width: 400px;
-            margin: 20px 0;
+            scroll-snap-align: center;
+            border-radius: 8px;
         }
         .buy-btn {
             background: #A63D40;
@@ -38,7 +48,15 @@
 
     <div class="container">
         <h1>🔥 越南语T恤，轻松开启对话！🔥</h1>
-        <img src="images/tshirt.jpg" alt="越南语T恤" class="tshirt-image">
+
+        <div class="carousel">
+            <img src="images/tshirt_front.jpg" alt="T恤正面">
+            <img src="images/tshirt_back.jpg" alt="T恤背面">
+            <img src="images/tshirt_detail.jpg" alt="T恤细节">
+            <img src="images/student_1.jpg" alt="学生试穿">
+            <img src="images/student_2.jpg" alt="学生试穿">
+        </div>
+
         <p>💡 **你学越南语的最佳象征！**</p>
         <p>🚀 穿上它，越南人一眼就知道你会说 **“biết nói một chút Tiếng Việt”**！轻松开启话题，让你的越南语学习更有趣！</p>
         
