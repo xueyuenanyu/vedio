@@ -1,0 +1,123 @@
+<!-- 电子书详细页面 -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>越南语日常口语1000 - 版本二</title>
+    <style>
+        /* 页面样式 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1, h2, p {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .content {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .images-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .image {
+            max-width: 30%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .image:hover {
+            transform: scale(1.1);
+        }
+        .zoomed-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+        .zoomed-image img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+        .zoomed-image.show {
+            display: flex;
+        }
+        .zoomed-image-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .purchase-btn {
+            background-color: #5CB85C;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .purchase-btn:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>《越南语日常口语1000》版本二</h1>
+        <p>💐出来啦！🎉🥳</p>
+        <p>版本二是比较完整的，每个句子都搭配例句以及中文翻译，词汇表，大家可以在下面👇查看图片噢🥳</p>
+        <p>版本二也分简体和繁体字，供大家学习！</p>
+
+        <div class="images-container">
+            <img src="image1.jpg" alt="图片1" class="image" onclick="zoomImage(this)">
+            <img src="image2.jpg" alt="图片2" class="image" onclick="zoomImage(this)">
+            <img src="image3.jpg" alt="图片3" class="image" onclick="zoomImage(this)">
+        </div>
+
+        <div class="zoomed-image" id="zoomedImage" onclick="closeZoom()">
+            <span class="zoomed-image-close" onclick="closeZoom()">✖</span>
+            <img id="zoomedImgSrc" src="" alt="放大图片">
+        </div>
+
+        <div class="button-container">
+            <a href="mailto:kimmguyen18992@gmail.com" class="purchase-btn">点击购买</a>
+        </div>
+    </div>
+
+    <script>
+        function zoomImage(image) {
+            const zoomedImage = document.getElementById('zoomedImage');
+            const zoomedImgSrc = document.getElementById('zoomedImgSrc');
+            zoomedImgSrc.src = image.src;
+            zoomedImage.classList.add('show');
+        }
+
+        function closeZoom() {
+            const zoomedImage = document.getElementById('zoomedImage');
+            zoomedImage.classList.remove('show');
+        }
+    </script>
+
+</body>
+</html>
